@@ -1,0 +1,57 @@
+learn git
+1.creat a directory for git which save your code.
+	mkdir git
+
+2.init the git repository.
+	git init
+
+3.create you code file
+	touch readme and edit the file.
+
+4.add your code to git  index-stage
+	git add readme								//put workspace file to the index-stage
+
+5.check the status of git
+	git status
+	information key words : "add file:readme"
+  check the difference of readme
+  	git diff readme	//differenc between with the workspace and index-stage,not differ commit-master
+6.commit the file to master
+	git commit -m "note information to modify"	//put the index-stage files to the master
+  check the difference between version in master and workspace
+  	git diff HEAD -- readme
+7.query information 
+	git log	
+	git log --pretty=online
+8.go back the old
+	git reset --hard HEAD^					//go back the last version
+	git reset --hard commit-id				//go to the commit-id version
+	git reflog 								//query all commond you input (history)
+9.checkout commonda							//cancel(revoke,annul,rescind) the modify of the file in workspace
+	git checkout -- readme					//"--" no this is to switch to the other branch
+NOTE:
+	git reset --hard HEAD	//back to the version (from current brach) clear all in workspace and index-stage
+	git reset HEAD readme	//cancel the add operation(if add one file twice or more ,cancel all add)  
+							//just clear the file in index-stage,workspace is not clear;
+							//the file:unstage.
+	git checkout -- readme	//just clear the workspace (file from the index-stage)
+
+10.delete the file
+	git rm readme
+	git commit -m "note"
+
+11.config the user information
+	git config user.name XXX
+	git config user.email  xxx@xxx
+12.config the remote information
+	git remote add origin git@github.com:xxxxx/git.git
+	git push -u origin master
+	git remote remove origin
+13.clone the remote repository
+	git clone git@github.com:xxxx/xxx.git
+
+
+
+14. submodule
+
+	git submodule add  init  update
